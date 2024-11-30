@@ -341,7 +341,7 @@
                                             style="margin-top: 10px; color: black; font-weight: bold;">Coming Soon
                                         </h3>
                                         <div class="project-more">
-                                            <a class="main-btn" href="loading page/loadingPage.html">
+                                            <a class="main-btn" href="loading page/loadingPage.php">
                                                 <i class="fa-solid fa-eye fa-2xl" style="color: #ffffff;"></i> View
                                             </a>
                                         </div>
