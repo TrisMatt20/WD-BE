@@ -330,7 +330,7 @@
                         <div class="col-lg-4 col-md-6 col-sm-6 animate-up">
                             <div class="single-project text-center mt-30">
                                 <div class="project">
-                                    <a href="activities/activity 4/activity4.html"
+                                    <a href="activities/A08/index.php"
                                         style="display: inline-block; position: relative;">
                                         <img src="Portfolio/assets/css/img/projects/tba.png" alt="project1">
                                     </a>
@@ -341,7 +341,7 @@
                                             style="margin-top: 10px; color: black; font-weight: bold;">Coming Soon
                                         </h3>
                                         <div class="project-more">
-                                            <a class="main-btn" href="loading page/loadingPage.php">
+                                            <a class="main-btn" href="activities/A08/index.php">
                                                 <i class="fa-solid fa-eye fa-2xl" style="color: #ffffff;"></i> View
                                             </a>
                                         </div>

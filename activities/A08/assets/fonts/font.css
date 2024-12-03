@@ -1,0 +1,7 @@
+/* Font Hosting */
+@font-face {
+    font-family: 'Inside Out4';
+    src: url('Inside Out4.otf') format('opentype');
+    font-weight: normal;
+    font-display: swap;
+}
