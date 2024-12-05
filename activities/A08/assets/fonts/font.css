@@ -5,3 +5,10 @@
     font-weight: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Montilla DEMO';
+    src: url('Montilla-DEMO-BF66e75c3cae983.otf') format('opentype');
+    font-weight: normal;
+    font-display: swap;
+}

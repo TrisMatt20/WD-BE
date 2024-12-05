@@ -7,10 +7,80 @@
     <title>Home | HQ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/fonts/font.css">
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+    <!-- Navbar -->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 mx-auto" style="font-size: 50px;">Inside Out</span>
+        </div>
+    </nav>
+
+    <!-- body -->
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col">
+                <h1 class="title display-4">Welcome to TM Lord's Headquarters!</h1>
+                <h3 class="title-desc">You've arrived at the heart of my mind, where every thought, emotion, and dream
+                    is brought to life.</h3>
+                <img class="homePic img-fluid" src="assets/img/homePic.png" alt="homePic">
+            </div>
+        </div>
+    </div>
+
+    <div class="islands container-fluid text-center p-5">
+        <div class="row">
+            <div class="col">
+                <div class="navigate display-5 animate-up">Navigate through my personality islands!</div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 col-md-6">
+                    <img class="friendshipIsland img-fluid" src="assets/img/Friendship Island.png"
+                        alt="Friendship Island">
+                    <h5 class="p1 animate-up">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo velit quibusdam, fuga nihil
+                        exercitationem, nostrum, eligendi natus ipsam nobis cum eius consequuntur consectetur minus
+                        corrupti
+                        quae quam illo ratione recusandae!
+                    </h5>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img class="pixelPeak img-fluid" src="assets/img/Pixel Peak.png" alt="Pixel Peak">
+                    <h5 class="p2 animate-up">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut doloremque vitae cum rerum iste
+                        dolor, molestiae autem esse porro dicta soluta? Adipisci, ullam eaque. Blanditiis cumque
+                        molestiae
+                        eligendi. Soluta, quibusdam.
+                    </h5>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 col-md-6">
+                    <img class="hoopHaven img-fluid" src="assets/img/Hoop Haven.png" alt="Hoop Haven">
+                    <h5 class="p3 animate-up">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo velit quibusdam, fuga nihil
+                        exercitationem, nostrum, eligendi natus ipsam nobis cum eius consequuntur consectetur minus
+                        corrupti
+                        quae quam illo ratione recusandae!
+                    </h5>
+                </div>
+                <div class="col-12 col-md-6">
+                    <img class="technoSphere img-fluid" src="assets/img/TechnoSphere.png" alt="TechnoSphere">
+                    <h5 class="p4 animate-up">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut doloremque vitae cum rerum iste
+                        dolor, molestiae autem esse porro dicta soluta? Adipisci, ullam eaque. Blanditiis cumque
+                        molestiae
+                        eligendi. Soluta, quibusdam.
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/animate-up.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

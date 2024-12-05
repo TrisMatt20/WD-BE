@@ -25,7 +25,7 @@
     <!-- Navbar -->
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1 mx-auto" style="font-size: 30px;">Inside Out</span>
+            <span class="navbar-brand mb-0 h1 mx-auto" style="font-size: 50px;">Inside Out</span>
         </div>
     </nav>
 

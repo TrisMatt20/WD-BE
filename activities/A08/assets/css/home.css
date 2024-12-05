@@ -1,0 +1,103 @@
+body {
+    overflow-x: hidden;
+    background-color: #655C9E;
+}
+
+/* navbar */
+.navbar {
+    background-color: #AA6FBF !important;
+    font-family: 'Inside Out4', sans-serif;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.title, .title-desc, .navigate {
+    font-family: 'Inside Out4', sans-serif;
+}
+
+/* body */
+.title {
+    padding-top: 20px;
+    color: white;
+}
+
+.title-desc {
+    color: #FAD693;
+}
+
+.homePic {
+    max-width: 300px;
+    padding-top: 30px;
+}
+
+.navigate {
+    color: #FFB01E;
+}
+
+.friendshipIsland, .hoopHaven {
+    max-width: 300px;
+    padding-bottom: 20px;
+}
+
+.pixelPeak {
+    max-width: 300px;
+    padding-bottom: 25px;
+}
+
+.technoSphere {
+    max-width: 250px;
+    padding-bottom: 25px;
+}
+
+.p1, .p2, .p3, .p4 {
+    font-family: 'Montilla DEMO', sans-serif;
+}
+
+/* Animation */
+
+/* Floating Island */
+.friendshipIsland, .pixelPeak, .hoopHaven, .technoSphere {
+    animation: float 4s ease-in-out infinite; 
+    transform-origin: center;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); 
+    }
+    50% {
+        transform: translateY(-15px); 
+    }
+    100% {
+        transform: translateY(0); 
+    }
+}
+
+.friendshipIsland:hover, .pixelPeak:hover, .hoopHaven:hover, .technoSphere:hover  {
+    animation: float 2s ease-in-out infinite; 
+}
+
+/* Animate-up */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px); 
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-up.show {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
