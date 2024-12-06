@@ -46,8 +46,7 @@ while ($islandRow = mysqli_fetch_assoc($islandResults)) {
             <div class="col">
                 <h1 class="title display-4">Welcome to TM Lord's Headquarters!</h1>
                 <h3 class="title-desc mt-5">You've arrived at the heart of my mind, where every thought, emotion, and
-                    dream
-                    is brought to life.</h3>
+                    dream is brought to life.</h3>
                 <img class="homePic img-fluid animate-up" src="assets/img/homePic.png" alt="homePic">
             </div>
         </div>
