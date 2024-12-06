@@ -36,19 +36,9 @@ body {
     color: #FFB01E;
 }
 
-.friendshipIsland, .hoopHaven {
+.islandImage {
     max-width: 300px;
     padding-bottom: 20px;
-}
-
-.pixelPeak {
-    max-width: 300px;
-    padding-bottom: 25px;
-}
-
-.technoSphere {
-    max-width: 250px;
-    padding-bottom: 25px;
 }
 
 .islandName, .islandName2, .islandName3, .islandName4 {
@@ -75,6 +65,7 @@ body {
 
 .p1, .p2, .p3, .p4 {
     font-family: 'Montilla DEMO', sans-serif;
+    color: white;
 }
 
 /* button */
@@ -134,7 +125,7 @@ a {
 /* Animation */
 
 /* Floating Island */
-.friendshipIsland, .pixelPeak, .hoopHaven, .technoSphere {
+.islandImage {
     animation: float 4s ease-in-out infinite; 
     transform-origin: center;
 }
@@ -151,8 +142,9 @@ a {
     }
 }
 
-.friendshipIsland:hover, .pixelPeak:hover, .hoopHaven:hover, .technoSphere:hover  {
-    animation: float 2s ease-in-out infinite; 
+.islandImage:hover {
+    animation: float 2s ease-in-out infinite; /* Animation still applies on hover but with a faster cycle */
+    transform: translateY(-10px); /* Optional: Change the behavior slightly on hover if needed */
 }
 
 /* Animate-up */
