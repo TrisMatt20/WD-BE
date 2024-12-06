@@ -143,8 +143,8 @@ a {
 }
 
 .islandImage:hover {
-    animation: float 2s ease-in-out infinite; /* Animation still applies on hover but with a faster cycle */
-    transform: translateY(-10px); /* Optional: Change the behavior slightly on hover if needed */
+    animation: float 2s ease-in-out infinite; 
+    transform: translateY(-10px);
 }
 
 /* Animate-up */
