@@ -4,7 +4,7 @@ include("shared/classes.php");
 
 $islandDescripList = array();
 
-// Query for Island Name
+// Query for Island Description
 $islandQuery = "SELECT * FROM islandsofpersonality";
 $islandResults = executeQuery($islandQuery);
 
@@ -19,31 +19,38 @@ while ($islandRow = mysqli_fetch_assoc($islandResults)) {
     array_push($islandDescripList, $island);
 }
 
-$islandContentList = array();
+// $islandContentList = array();
 
 // Query for Content
-$islandContentQuery = "SELECT * FROM islandcontents";
+$islandID = isset($_GET['id']) ? $_GET['id'] : null;
+$islandContentList = array();
+
+$islandContentQuery = "SELECT * FROM islandcontents WHERE islandOfPersonalityID = '$islandID' LIMIT 3";
 $islandContentResults = executeQuery($islandContentQuery);
 
-while ($islandContentRow = mysqli_fetch_assoc($islandContentResults)) {
-    $islandContent = new IslandContent(
-        $islandContentRow['islandContentID'],
-        $islandContentRow['islandOfPersonalityID'],
-        $islandContentRow['content']
-    );
 
-    array_push($islandContentList, $islandContent);
+if (mysqli_num_rows($islandContentResults) > 0) {
+    $coreMemoryCounter = 1;
+
+    while ($islandContentRow = mysqli_fetch_assoc($islandContentResults)) {
+        $islandContent = new IslandContent(
+            $islandContentRow['islandContentID'],
+            $islandContentRow['islandOfPersonalityID'],
+            $islandContentRow['content']
+        );
+
+        array_push($islandContentList, $islandContent);
+    }
 }
 
-
+// Query for Island Name
 $islandName = "";
 $islandID = isset($_GET['id']) ? $_GET['id'] : null;
 
-// Query for Island Name
 $islandNameQuery = "SELECT * FROM islandsofpersonality WHERE islandOfPersonalityID = $islandID";
 $islandNameResults = executeQuery($islandNameQuery);
 
-while($islandNameRows = mysqli_fetch_assoc($islandNameResults)){
+while ($islandNameRows = mysqli_fetch_assoc($islandNameResults)) {
     $islandName = $islandNameRows['name'];
 }
 
@@ -55,12 +62,13 @@ while($islandNameRows = mysqli_fetch_assoc($islandNameResults)){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $islandName; ?></title>
+    <title><?php echo "Island | " . $islandName; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/view.css">
     <link rel="stylesheet" href="assets/fonts/font.css">
+    <link rel="icon" href="assets/img/AO8_favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -75,22 +83,7 @@ while($islandNameRows = mysqli_fetch_assoc($islandNameResults)){
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav nav-item">
-                        <a class="nav-link active" aria-current="page" href="home.php">Home</a>
-                    </li>
-                    <li class="nav nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Islands
-                        </a>
-                        <ul class="dropdown dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Bonding Bay</a></li>
-                            <li><a class="dropdown-item" href="#">Pixel Peak</a></li>
-                            <li><a class="dropdown-item" href="#">Hoop Haven</a></li>
-                            <li><a class="dropdown-item" href="#">TechnoSphere</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link active" aria-current="page" href="home.php">Back to Home</a>
                     </li>
                 </ul>
             </div>
@@ -100,15 +93,15 @@ while($islandNameRows = mysqli_fetch_assoc($islandNameResults)){
     <!-- body -->
     <section class="container-fluid">
         <div class="row py-3">
-            <?php $islandID = isset($_GET['id']) ? $_GET['id'] : null;?>
+            <?php $islandID = isset($_GET['id']) ? $_GET['id'] : null; ?>
         </div>
         <?php
-           if ($islandID) {
+        if ($islandID) {
             foreach ($islandDescripList as $islandItem) {
                 if ($islandItem->islandOfPersonalityID == $islandID) {
                     echo "<div class='title display-5 text-center' style='margin-bottom:50px;'>Welcome to TM Lord's " . $islandItem->name . "!</div>";
                     echo $islandItem->showDescrip();
-                    break; 
+                    break;
                 }
             }
         }
@@ -124,60 +117,32 @@ while($islandNameRows = mysqli_fetch_assoc($islandNameResults)){
                     What core memories make up this island?
                 </div>
             </div>
+        </div>
 
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-6 col-md-6">
-                    <div class="orb"></div>
-                    <div class="look d-flex justify-content-center align-items-center display-5">
-                        Core Memory 1
+                <?php
+                $coreMemoryCounter = 1;
+                foreach ($islandContentList as $content):
+                    ?>
+                    <div class="col-6 col-md-6">
+                        <div class="orb"></div>
+                        <div class="look d-flex justify-content-center align-items-center display-5">
+                            Core Memory <?php echo $coreMemoryCounter++; ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 col-md-6 col-sm-6">
-                    <div class="islandContent d-flex justify-content-center align-items-center">
-                        As a kid, I spent a lot of time indoors because my parents were very strict about letting me go
-                        out. But when I was about 9 years old, they finally allowed me to explore. I still vividly
-                        remember the joy of making my first friend and playing together. It was like discovering a whole
-                        new world outside our home, full of connection and adventure.
+                    <div class="col-6 col-md-6 col-sm-6">
+                        <?php echo $content->displayContent(); ?>
                     </div>
-                </div>
-                <div class="col-6 col-md-6">
-                    <div class="orb"></div>
-                    <div class="look d-flex justify-content-center align-items-center display-5">
-                        Core Memory 2
-                    </div>
-                </div>
-                <div class="col-6 col-md-6 col-sm-6">
-                    <div class="islandContent d-flex justify-content-center align-items-center">
-                        In 10th grade, I met my best friend, Louie, a truly unforgettable person who stood out from
-                        everyone else I'd ever known. He embodied all the qualities you'd hope for in a best friend.
-                        Together, we shared countless moments, created beautiful memories, and most importantly, we grew
-                        and became better versions of ourselves side by side.
-                    </div>
-                </div>
-                <div class="col-6 col-md-6">
-                    <div class="orb"></div>
-                    <div class="look d-flex justify-content-center align-items-center display-5">
-                        Core Memory 3
-                    </div>
-                </div>
-                <div class="col-6 col-md-6 col-sm-6">
-                    <div class="islandContent d-flex justify-content-center align-items-center">
-                        When I started college at PUP Sto. Tomas in 2022, I encountered all kinds of people, but I never
-                        expected to meet someone I'd come to see as a sister. Yet, I did—her name is Jade. She's one of
-                        the smartest, most supportive, and truly remarkable people I've ever met. Together, with Louie
-                        and Jade, our circle became one of the most cherished and defining parts of my life in this
-                        universe.
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        
+        <!-- footer -->
+        <?php include("shared/footer.php"); ?>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

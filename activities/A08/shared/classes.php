@@ -58,9 +58,9 @@ class IslandContent
     }
 
     public function displayContent() {
-        return "<p class='islandDescription px-5 '>
-                    ".$this->content."
-                </p>";
+        return "<div class='islandContent d-flex justify-content-center align-items-center'>"
+                .$this->content."
+                </div>";
     }
 }
 ?>
