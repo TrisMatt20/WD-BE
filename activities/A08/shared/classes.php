@@ -34,5 +34,33 @@ class Island
             </div>
         </div>";
     }
+
+    public function showDescrip() {
+        return "
+        <p class='islandDescription px-5'>
+                    ".$this->description."
+                </p>";
+    }
+}
+
+class IslandContent 
+{
+    public $islandContentID;
+    public $islandOfPersonalityID;
+
+    public $content;
+
+    public function __construct($islandContentID, $islandOfPersonalityID, $content) 
+    {
+        $this->islandContentID = $islandContentID;
+        $this->islandOfPersonalityID = $islandOfPersonalityID;
+        $this->content = $content;
+    }
+
+    public function displayContent() {
+        return "<p class='islandDescription px-5'>
+                    ".$this->content."
+                </p>";
+    }
 }
 ?>
