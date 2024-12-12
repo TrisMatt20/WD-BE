@@ -318,7 +318,7 @@
                 <div class="section-title pb-25 animate-up px-3">
                     <h2 class="title" style="color: white; text-align: center;">My Projects</h2>
                     <p class= "px-3"style="color:white; text-align: center;">This section displays all the
-                        compilation of my activites in my Web Development Course</p>
+                        compilation of my activites in my Web Development Course - Backend</p>
                     <div class="col-lg-8">
 
                     </div>
@@ -332,13 +332,13 @@
                                 <div class="project">
                                     <a href="activities/A08/index.php"
                                         style="display: inline-block; position: relative;">
-                                        <img src="Portfolio/assets/css/img/projects/tba.png" alt="project1">
+                                        <img src="Portfolio/assets/css/img/projects/A08.png" alt="project1">
                                     </a>
                                 </div>
                                 <div class="project-overlay">
                                     <div class="project-content text-center">
                                         <h3 class="project-title"
-                                            style="margin-top: 10px; color: black; font-weight: bold;">Coming Soon
+                                            style="margin-top: 10px; color: black; font-weight: bold;">Inside Out - My Headquarters
                                         </h3>
                                         <div class="project-more">
                                             <a class="main-btn" href="activities/A08/index.php">
