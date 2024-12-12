@@ -58,7 +58,7 @@ class IslandContent
     }
 
     public function displayContent() {
-        return "<p class='islandDescription px-5'>
+        return "<p class='islandDescription px-5 '>
                     ".$this->content."
                 </p>";
     }

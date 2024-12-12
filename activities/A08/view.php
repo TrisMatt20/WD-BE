@@ -36,6 +36,17 @@ while ($islandContentRow = mysqli_fetch_assoc($islandContentResults)) {
 }
 
 
+$islandName = "";
+$islandID = isset($_GET['id']) ? $_GET['id'] : null;
+
+// Query for Island Name
+$islandNameQuery = "SELECT * FROM islandsofpersonality WHERE islandOfPersonalityID = $islandID";
+$islandNameResults = executeQuery($islandNameQuery);
+
+while($islandNameRows = mysqli_fetch_assoc($islandNameResults)){
+    $islandName = $islandNameRows['name'];
+}
+
 ?>
 
 <!doctype html>
@@ -44,7 +55,7 @@ while ($islandContentRow = mysqli_fetch_assoc($islandContentResults)) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo "Hello World" ?></title>
+    <title><?php echo $islandName; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- CSS -->
@@ -89,15 +100,13 @@ while ($islandContentRow = mysqli_fetch_assoc($islandContentResults)) {
     <!-- body -->
     <section class="container-fluid">
         <div class="row py-3">
-            <?php
-            $islandID = isset($_GET['id']) ? $_GET['id'] : null;
-            ?>
-            <div class="title display-5 text-center">Welcome to TM Lord's Bonding Bay!</div>
+            <?php $islandID = isset($_GET['id']) ? $_GET['id'] : null;?>
         </div>
         <?php
            if ($islandID) {
             foreach ($islandDescripList as $islandItem) {
                 if ($islandItem->islandOfPersonalityID == $islandID) {
+                    echo "<div class='title display-5 text-center' style='margin-bottom:50px;'>Welcome to TM Lord's " . $islandItem->name . "!</div>";
                     echo $islandItem->showDescrip();
                     break; 
                 }
@@ -107,7 +116,7 @@ while ($islandContentRow = mysqli_fetch_assoc($islandContentResults)) {
 
     </section>
 
-    <!-- body -->
+    <!-- Core Memories -->
     <div class="container-fluid">
         <div class="row py-3">
             <div class="col">
